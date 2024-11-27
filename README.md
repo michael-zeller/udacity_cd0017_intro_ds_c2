@@ -13,6 +13,12 @@ Its main goal is to gain a basic understanding of the crisp-dm process.
 an example dataset is analysed, questions are answered and published in a data scientist blog post
 
 # file descriptions
+## /data
+
+files are from
+https://www.kaggle.com/datasets/airbnb/seattle/data
+License CCO:Public Domain
+
 
 # how to interact
 
