@@ -22,6 +22,9 @@ License CCO:Public Domain
 
 # how to interact
 
+you can access the resulting data analysis under
+https://michael-zeller.github.io/udacity_cd0017_intro_ds_c2/
+
 # licensing
 
 this is private code without any garanties of functionality or usability.
