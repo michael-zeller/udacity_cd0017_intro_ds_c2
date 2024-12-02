@@ -24,8 +24,9 @@ jobs:
 
     - name: Convert Jupyter Notebook to HTML
       run: |
-        jupyter nbconvert --to html seattle_airbnb.ipynb
+        jupyter nbconvert --to html seattle_airbnb.ipynb --no-input --no-prompt
         mv seattle_airbnb.html index.html
+        jupyter nbconvert --to html seattle_airbnb.ipynb        
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
