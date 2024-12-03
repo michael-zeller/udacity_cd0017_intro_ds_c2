@@ -7516,14 +7516,14 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Auswertung-der-Seattle-AirBNB-Daten-von-2016">Auswertung der Seattle AirBNB-Daten von 2016<a class="anchor-link" href="#Auswertung-der-Seattle-AirBNB-Daten-von-2016">¶</a></h1><p><img alt="KI-Rendering" src="seattle4.png" title="Bild wurde mit https://huggingface.co/spaces/black-forest-labs/FLUX.1-dev generiert"/></p>
-<p>AirBNB hat viele seiner Daten veröffentlicht. Die in dieser Auswertung untersuchten Daten stammen von
+<h1 id="Analysis-of-Seattle-Airbnb-Data-from-2016">Analysis of Seattle Airbnb Data from 2016<a class="anchor-link" href="#Analysis-of-Seattle-Airbnb-Data-from-2016">¶</a></h1><p><img alt="AI Rendering" src="seattle4.png" title="Image generated with https://huggingface.co/spaces/black-forest-labs/FLUX.1-dev"/></p>
+<p>Airbnb has released a lot of its data. The data analyzed in this evaluation comes from
 <a href="https://www.kaggle.com/datasets/airbnb/seattle/data">https://www.kaggle.com/datasets/airbnb/seattle/data</a>
-und sind in der public domain unter CC0 verfügbar.</p>
-<p>Die Auswertung kann angesehen werden:</p>
+and is available in the public domain under CC0.</p>
+<p>The evaluation can be viewed:</p>
 <ul>
-<li><a href="index.html">ohne Python-Code</a></li>
-<li><a href="seattle_airbnb.html">mit Python-Code</a></li>
+<li><a href="index.html">without Python code</a></li>
+<li><a href="seattle_airbnb.html">with Python code</a></li>
 </ul>
 </div>
 </div>
@@ -7549,21 +7549,21 @@ und sind in der public domain unter CC0 verfügbar.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Bibliotheken importieren</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Import libraries</span>
 
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>  <span class="c1"># Importieren von Pandas für die Datenanalyse</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  <span class="c1"># Importieren von NumPy für numerische Operationen</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>  <span class="c1"># Importieren von Matplotlib für die Datenvisualisierung</span>
-<span class="kn">import</span> <span class="nn">holidays</span> <span class="c1"># Importieren von holidays für Feiertage</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span> <span class="c1"># Importieren von seaborn für die Datenvisualisierung</span>
-<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span> <span class="c1"># Importieren von geopandas für die Geodatenanalyse</span>
-<span class="kn">import</span> <span class="nn">geodatasets</span> <span class="k">as</span> <span class="nn">gd</span> <span class="c1"># Importieren von geodataset für die Geodatenanalyse</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>  <span class="c1"># Import pandas for data analysis</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  <span class="c1"># Import NumPy for numerical operations</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>  <span class="c1"># Import Matplotlib for data visualization</span>
+<span class="kn">import</span> <span class="nn">holidays</span>  <span class="c1"># Import holidays for holiday data</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>  <span class="c1"># Import seaborn for data visualization</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>  <span class="c1"># Import geopandas for geospatial data analysis</span>
+<span class="kn">import</span> <span class="nn">geodatasets</span> <span class="k">as</span> <span class="nn">gd</span>  <span class="c1"># Import geodatasets for geospatial data analysis</span>
 
 
-<span class="c1"># Daten einlesen</span>
+<span class="c1"># read data</span>
 <span class="n">calendar</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'./data/calendar.csv'</span><span class="p">)</span>
 <span class="n">listings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'./data/listings.csv'</span><span class="p">)</span>
 <span class="n">reviews</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'./data/reviews.csv'</span><span class="p">)</span>
@@ -7579,7 +7579,7 @@ und sind in der public domain unter CC0 verfügbar.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Erste-%C3%9Cbersicht">Erste Übersicht<a class="anchor-link" href="#Erste-%C3%9Cbersicht">¶</a></h1>
+<h1 id="First-look-into-the-Data">First look into the Data<a class="anchor-link" href="#First-look-into-the-Data">¶</a></h1>
 </div>
 </div>
 </div>
@@ -7590,9 +7590,9 @@ und sind in der public domain unter CC0 verfügbar.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Beschreibung-der-DataFrames-und-ihrer-Spalten">Beschreibung der DataFrames und ihrer Spalten<a class="anchor-link" href="#Beschreibung-der-DataFrames-und-ihrer-Spalten">¶</a></h2><h3 id="calendar-DataFrame">calendar DataFrame<a class="anchor-link" href="#calendar-DataFrame">¶</a></h3><p>Die Tabelle enthält Informationen über die Verfügbarkeit und die Preise von Airbnb-Listings in Seattle je Kalendertag aus 2016.</p>
-<h3 id="listings-DataFrame">listings DataFrame<a class="anchor-link" href="#listings-DataFrame">¶</a></h3><p>Die Daten enthalten Informationen zu Airbnb-Listings in Seattle. Sie umfassen Details zu den <em>Listings</em> selbst, wie ID, URL, Name, Beschreibung, Standort (Straße, Stadt, Bundesstaat, Postleitzahl, Koordinaten) und <em>Art der Unterkunft</em> (z.B. Zimmer- oder Unterkunftstyp, Anzahl der Schlafzimmer und Betten, Annehmlichkeiten, Preis und Verfügbarkeit). Zusätzlich gibt es Informationen über die <em>Hosts</em>, wie deren ID, Name, Standort, Verifizierungen und Bewertungen. Bewertungen und Feedback zu den Listings werden ebenfalls erfasst, einschließlich der Anzahl der Bewertungen und verschiedener Bewertungskriterien (z.B. Sauberkeit, Kommunikation). Weitere Spalten betreffen Buchungsbedingungen und Anforderungen an Gäste.</p>
-<h3 id="reviews-DataFrame">reviews DataFrame<a class="anchor-link" href="#reviews-DataFrame">¶</a></h3><p>Die Tabelle enthält schriftliche Bewertungen der Airbnb-Listings mit ID des Reviewers und einem Datum. Es sind keine numerischen Bewertungen enthalten</p>
+<h2 id="Description-of-DataFrames-and-their-Columns">Description of DataFrames and their Columns<a class="anchor-link" href="#Description-of-DataFrames-and-their-Columns">¶</a></h2><h3 id="calendar-DataFrame">calendar DataFrame<a class="anchor-link" href="#calendar-DataFrame">¶</a></h3><p>The table contains information about the availability and prices of Airbnb listings in Seattle for each calendar day in 2016.</p>
+<h3 id="listings-DataFrame">listings DataFrame<a class="anchor-link" href="#listings-DataFrame">¶</a></h3><p>The data contains information about Airbnb listings in Seattle. They include details about the listings themselves, such as ID, URL, name, description, location (street, city, state, zip code, coordinates), and type of accommodation (e.g., room or property type, number of bedrooms and beds, amenities, price, and availability). Additionally, there is information about the hosts, such as their ID, name, location, verifications, and ratings. Reviews and feedback on the listings are also captured, including the number of reviews and various rating criteria (e.g., cleanliness, communication). Other columns concern booking conditions and guest requirements.</p>
+<h3 id="reviews-DataFrame">reviews DataFrame<a class="anchor-link" href="#reviews-DataFrame">¶</a></h3><p>The table contains written reviews of the Airbnb listings with the reviewer's ID and a date. No numerical ratings are included.</p>
 </div>
 </div>
 </div>
@@ -7603,8 +7603,8 @@ und sind in der public domain unter CC0 verfügbar.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Gibt-es-eine-Abh%C3%A4ngigkeit-der-Preise-von-Feiertagen?">Gibt es eine Abhängigkeit der Preise von Feiertagen?<a class="anchor-link" href="#Gibt-es-eine-Abh%C3%A4ngigkeit-der-Preise-von-Feiertagen?">¶</a></h1><p>Für diese Analyse müssen wir die Daten aus dem Calendar-Dataframe mit den Angaben zu den öffentlichen Feiertagen im US-Bundesstaat Washington (WA) kombinieren. Wir wollen die Preise an allen Tagen vor einem Feirtag oder Wochenendtag mit den übrigen Preisen vergleichen.</p>
-<p>Werden Unterkünfte teurer, wenn man am nächsten Tag ausschlafen kann?</p>
+<h1 id="Is-there-a-dependency-of-prices-on-holidays?">Is there a dependency of prices on holidays?<a class="anchor-link" href="#Is-there-a-dependency-of-prices-on-holidays?">¶</a></h1><p>For this analysis, we need to combine the data from the calendar dataframe with the public holiday information for the US state of Washington (WA). We want to compare the prices on all days before a holiday or weekend day with the remaining prices.</p>
+<p>Do accommodations become more expensive when you can sleep in the next day?</p>
 </div>
 </div>
 </div>
@@ -7613,52 +7613,50 @@ und sind in der public domain unter CC0 verfügbar.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># aufbereiten der csv daten</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Prepare the CSV data</span>
 <span class="n">calendar</span><span class="p">[</span><span class="s1">'_price'</span><span class="p">]</span> <span class="o">=</span> <span class="n">calendar</span><span class="p">[</span><span class="s1">'price'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'[</span><span class="se">\\</span><span class="s1">$,]'</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
 <span class="n">calendar</span><span class="p">[</span><span class="s1">'_date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">calendar</span><span class="p">[</span><span class="s1">'date'</span><span class="p">])</span>
 <span class="n">calendar</span><span class="p">[</span><span class="s1">'_available'</span><span class="p">]</span> <span class="o">=</span> <span class="n">calendar</span><span class="p">[</span><span class="s1">'available'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="s1">'t'</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">'f'</span><span class="p">:</span> <span class="kc">False</span><span class="p">})</span>
 
-<span class="c1"># Berechnen des Durchschnittspreises pro Listing (pandas ignoriert automatisch NaN-Werte)</span>
+<span class="c1"># Calculate the average price per listing (pandas automatically ignores NaN values)</span>
 <span class="n">average_price_per_listing</span> <span class="o">=</span> <span class="n">calendar</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'listing_id'</span><span class="p">)[</span><span class="s1">'_price'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">average_price_per_listing</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'listing_id'</span><span class="p">,</span> <span class="s1">'average_price'</span><span class="p">]</span>
 
-<span class="c1"># Zusammenführen der berechneten Durchschnittspreise mit dem ursprünglichen DataFrame</span>
+<span class="c1"># Merge the calculated average prices with the original DataFrame</span>
 <span class="n">calendar</span> <span class="o">=</span> <span class="n">calendar</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">average_price_per_listing</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">'listing_id'</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'left'</span><span class="p">)</span>
 
-<span class="c1"># Abweichung des Preises vom Durchschnittspreis pro listing berechnen</span>
+<span class="c1"># Calculate the price deviation from the average price per listing</span>
 <span class="n">calendar</span><span class="p">[</span><span class="s1">'price_deviation'</span><span class="p">]</span> <span class="o">=</span> <span class="n">calendar</span><span class="p">[</span><span class="s1">'_price'</span><span class="p">]</span> <span class="o">-</span> <span class="n">calendar</span><span class="p">[</span><span class="s1">'average_price'</span><span class="p">]</span>
 
-<span class="c1"># prozentuale Abweichung des Preises vom Durchschnittspreis pro listing berechnen</span>
+<span class="c1"># Calculate the percentage deviation of the price from the average price per listing</span>
 <span class="n">calendar</span><span class="p">[</span><span class="s1">'price_deviation_percentage'</span><span class="p">]</span> <span class="o">=</span> <span class="n">calendar</span><span class="p">[</span><span class="s1">'price_deviation'</span><span class="p">]</span> <span class="o">/</span> <span class="n">calendar</span><span class="p">[</span><span class="s1">'average_price'</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
 
-<span class="c1"># Funktion zur Überprüfung, ob ein Datum ein Feiertag ist</span>
-
+<span class="c1"># Function to check if a date is a holiday</span>
 <span class="n">us_holidays</span> <span class="o">=</span> <span class="n">holidays</span><span class="o">.</span><span class="n">US</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="s1">'WA'</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">is_holiday</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">us_holidays</span>
 
-<span class="c1"># Spalte erstellen, die angibt, ob das Datum ein arbeitsfreier Tag ist</span>
+<span class="c1"># Create a column indicating whether the date is a holiday or weekend</span>
 <span class="n">calendar</span><span class="p">[</span><span class="s1">'is_holiday_or_weekend'</span><span class="p">]</span> <span class="o">=</span> <span class="n">calendar</span><span class="p">[</span><span class="s1">'_date'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">weekday</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">5</span> <span class="ow">or</span> <span class="n">is_holiday</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
-<span class="c1"># boolean Spalte erstellen, die angibt, ob das Datum direkt vor einem arbeitsfreien Tag liegt  </span>
+<span class="c1"># Create a boolean column indicating whether the date is the day before a holiday</span>
 <span class="n">calendar</span><span class="p">[</span><span class="s1">'is_day_before_holiday'</span><span class="p">]</span> <span class="o">=</span> <span class="n">calendar</span><span class="p">[</span><span class="s1">'is_holiday_or_weekend'</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="c1"># NaN Werte in der letzten Zeile durch True ersetzen (1.1. ist ein Feiertag)</span>
+<span class="c1"># Replace NaN values in the last row with True (January 1st is a holiday)</span>
 <span class="k">with</span> <span class="n">pd</span><span class="o">.</span><span class="n">option_context</span><span class="p">(</span><span class="s1">'future.no_silent_downcasting'</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>
     <span class="n">calendar</span><span class="p">[</span><span class="s1">'is_day_before_holiday'</span><span class="p">]</span> <span class="o">=</span> <span class="n">calendar</span><span class="p">[</span><span class="s1">'is_day_before_holiday'</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">infer_objects</span><span class="p">()</span>
 
-
-<span class="c1"># zwei candlestick-diagramme erstellen. prozentuale Abweichung des Preises vom Durchschnittspreis pro listing getrennt nach is_day_before_holiday.</span>
+<span class="c1"># Create two candlestick charts. Percentage deviation of the price from the average price per listing separated by is_day_before_holiday.</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="c1"># außreißer ausblenden</span>
+<span class="c1"># Hide outliers</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">'is_day_before_holiday'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'price_deviation_percentage'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">calendar</span><span class="p">,</span> <span class="n">showfliers</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">offset</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">trim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Prozentuale Abweichung des Preises vom Durchschnittspreis pro Listing (Tage vor Feiertagen)'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Ist der Tag vor einem Feiertag?'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Prozentuale Abweichung des Preises'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Percentage Deviation of Price from Average Price per Listing (Days before Holidays)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Is the day before a holiday?'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Percentage Deviation of Price'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -7684,8 +7682,8 @@ und sind in der public domain unter CC0 verfügbar.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Im Diagramm sieht man, dass die Abweichung vom Durchschnittspreis (je Listing) vor einem Feiertag deutlich höher sind, als wenn der folgende Tag ein normaler Arbeitstag ist.</p>
-<p>Vor einem Arbeitstag sind Rabatte üblich, vor einem Feiertag/Wochenende Preissteigerungen um ca. 5%.</p>
+<p>In the chart, you can see that the deviation from the average price (per listing) is significantly higher before a holiday than when the following day is a regular workday.</p>
+<p>Before a workday, discounts are common, while before a holiday/weekend, price increases of around 5% are observed.</p>
 </div>
 </div>
 </div>
@@ -7696,7 +7694,7 @@ und sind in der public domain unter CC0 verfügbar.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Sind-die-Preise-vom-Stadtteil-abh%C3%A4ngig?">Sind die Preise vom Stadtteil abhängig?<a class="anchor-link" href="#Sind-die-Preise-vom-Stadtteil-abh%C3%A4ngig?">¶</a></h1><p>Durch zusammenführen der Werte aus dem Calendar-Dataframe und dem Listings-Dataframe können wir den durchschnittlichen Preis pro Stadtteil (neighbourhood) ausrechnen.</p>
+<h1 id="Are-prices-dependent-on-the-neighborhood?">Are prices dependent on the neighborhood?<a class="anchor-link" href="#Are-prices-dependent-on-the-neighborhood?">¶</a></h1><p>By merging the values from the calendar dataframe and the listings dataframe, we can calculate the average price per neighborhood.</p>
 </div>
 </div>
 </div>
@@ -7705,37 +7703,37 @@ und sind in der public domain unter CC0 verfügbar.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Preis-Spalte im calendar DataFrame bereinigen und in float umwandeln</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Clean the price column in the calendar DataFrame and convert to float</span>
 <span class="n">calendar</span><span class="p">[</span><span class="s1">'price'</span><span class="p">]</span> <span class="o">=</span> <span class="n">calendar</span><span class="p">[</span><span class="s1">'price'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'[</span><span class="se">\\</span><span class="s1">$,]'</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
 
-<span class="c1"># Zusammenführen der DataFrames calendar und listings anhand der listing_id</span>
+<span class="c1"># Merge the calendar and listings DataFrames on listing_id</span>
 <span class="n">merged_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">calendar</span><span class="p">,</span> <span class="n">listings</span><span class="p">[[</span><span class="s1">'id'</span><span class="p">,</span> <span class="s1">'neighbourhood'</span><span class="p">]],</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">'listing_id'</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">'id'</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'left'</span><span class="p">)</span>
 
-<span class="c1"># Berechnen des durchschnittlichen Preises pro Stadtteil</span>
+<span class="c1"># Calculate the average price per neighborhood</span>
 <span class="n">average_price_per_neighbourhood</span> <span class="o">=</span> <span class="n">merged_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'neighbourhood'</span><span class="p">)[</span><span class="s1">'price'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">average_price_per_neighbourhood</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'neighbourhood'</span><span class="p">,</span> <span class="s1">'average_price'</span><span class="p">]</span>
 
-<span class="c1"># Sortieren der Stadtteile nach durchschnittlichem Preis</span>
+<span class="c1"># Sort neighborhoods by average price</span>
 <span class="n">sorted_neighbourhoods</span> <span class="o">=</span> <span class="n">average_price_per_neighbourhood</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'average_price'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-<span class="c1"># Auswählen der höchsten 4 und niedrigsten 3 Stadtteile</span>
+<span class="c1"># Select the top 4 and bottom 3 neighborhoods</span>
 <span class="n">top_4_neighbourhoods</span> <span class="o">=</span> <span class="n">sorted_neighbourhoods</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">bottom_3_neighbourhoods</span> <span class="o">=</span> <span class="n">sorted_neighbourhoods</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 
-<span class="c1"># Zusammenführen der ausgewählten Stadtteile</span>
+<span class="c1"># Combine the selected neighborhoods</span>
 <span class="n">selected_neighbourhoods</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">top_4_neighbourhoods</span><span class="p">,</span> <span class="n">bottom_3_neighbourhoods</span><span class="p">])</span>
 
-<span class="c1"># Balkendiagramm erstellen mit unterschiedlichen Farben für Top 4 und Bottom 3 Stadtteile</span>
+<span class="c1"># Create a bar plot with different colors for top 4 and bottom 3 neighborhoods</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'blue'</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">+</span> <span class="p">[</span><span class="s1">'red'</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span>
 <span class="n">selected_neighbourhoods</span><span class="p">[</span><span class="s1">'category'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Top 4'</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">+</span> <span class="p">[</span><span class="s1">'Bottom 3'</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">'neighbourhood'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'average_price'</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">'category'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">selected_neighbourhoods</span><span class="p">,</span> <span class="n">dodge</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="p">{</span><span class="s1">'Top 4'</span><span class="p">:</span> <span class="s1">'blue'</span><span class="p">,</span> <span class="s1">'Bottom 3'</span><span class="p">:</span> <span class="s1">'red'</span><span class="p">})</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Durchschnittlicher Preis pro Stadtteil (Top 4 und Bottom 3)'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Stadtteil'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Durchschnittlicher Preis'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Average Price per Neighborhood (Top 4 and Bottom 3)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Neighborhood'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Average Price'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -7762,7 +7760,7 @@ und sind in der public domain unter CC0 verfügbar.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Die Preise in den verschiedenen Stadtteilen von Seattle unterscheiden sich deutlich. Mit Abstand am teuersten sind Unterkünfte in Fairmount Park.</p>
+<p>The prices in the different neighborhoods of Seattle vary significantly. By far the most expensive accommodations are in Fairmount Park.</p>
 </div>
 </div>
 </div>
@@ -7773,7 +7771,7 @@ und sind in der public domain unter CC0 verfügbar.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Haben-erfahrene-Hosts-mit-mehreren-Angeboten-bessere-Bewertungen?">Haben erfahrene Hosts mit mehreren Angeboten bessere Bewertungen?<a class="anchor-link" href="#Haben-erfahrene-Hosts-mit-mehreren-Angeboten-bessere-Bewertungen?">¶</a></h1><p>Wenn Hosts mehrere Unterkünfte anbieten, sollten sie Erfahrung sammeln können und das Angebot besser an die Bedürfnisse der Besucher anpassen können.</p>
+<h1 id="Do-experienced-hosts-with-multiple-listings-have-better-ratings?">Do experienced hosts with multiple listings have better ratings?<a class="anchor-link" href="#Do-experienced-hosts-with-multiple-listings-have-better-ratings?">¶</a></h1><p>If hosts offer multiple accommodations, they should be able to gain experience and better tailor the offerings to the needs of visitors.</p>
 </div>
 </div>
 </div>
@@ -7782,54 +7780,47 @@ und sind in der public domain unter CC0 verfügbar.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Anzahl der Listings pro Host berechnen</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Calculate the number of listings per host</span>
 <span class="n">listings_per_host</span> <span class="o">=</span> <span class="n">listings</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'host_id'</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'listings_count'</span><span class="p">)</span>
 
-<span class="c1"># Durchschnittliches Rating pro Host berechnen</span>
+<span class="c1"># Calculate the average rating per host</span>
 <span class="n">average_rating_per_host</span> <span class="o">=</span> <span class="n">listings</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'host_id'</span><span class="p">)[</span><span class="s1">'review_scores_rating'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'average_rating'</span><span class="p">)</span>
 
-<span class="c1"># Zusammenführen der DataFrames listings_per_host und average_rating_per_host anhand der host_id</span>
+<span class="c1"># Merge the DataFrames listings_per_host and average_rating_per_host on host_id</span>
 <span class="n">listings_and_ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">listings_per_host</span><span class="p">,</span> <span class="n">average_rating_per_host</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">'host_id'</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'left'</span><span class="p">)</span>
 
-
-
-<span class="c1"># Berechnen der linearen Regression, um die Beziehung zwischen der Anzahl der Listings und dem durchschnittlichen Rating zu approximieren</span>
+<span class="c1"># Calculate the linear regression to approximate the relationship between the number of listings and the average rating</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">linregress</span>
 
-<span class="c1"># Entfernen von NaN-Werten</span>
+<span class="c1"># Remove NaN values</span>
 <span class="n">listings_and_ratings_clean</span> <span class="o">=</span> <span class="n">listings_and_ratings</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">'average_rating'</span><span class="p">])</span>
 
-<span class="c1"># Lineare Regression berechnen</span>
+<span class="c1"># Calculate linear regression</span>
 <span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">r_value</span><span class="p">,</span> <span class="n">p_value</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="n">linregress</span><span class="p">(</span><span class="n">listings_and_ratings_clean</span><span class="p">[</span><span class="s1">'listings_count'</span><span class="p">],</span> <span class="n">listings_and_ratings_clean</span><span class="p">[</span><span class="s1">'average_rating'</span><span class="p">])</span>
 
-
-
-
-<span class="c1"># Scatterplot mit Regressionslinie erstellen</span>
+<span class="c1"># Create scatter plot with regression line</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">'listings_count'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'average_rating'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">listings_and_ratings_clean</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">listings_and_ratings_clean</span><span class="p">[</span><span class="s1">'listings_count'</span><span class="p">],</span> <span class="n">intercept</span> <span class="o">+</span> <span class="n">slope</span> <span class="o">*</span> <span class="n">listings_and_ratings_clean</span><span class="p">[</span><span class="s1">'listings_count'</span><span class="p">],</span> <span class="s1">'r'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">'Lin. Reg. (R²=</span><span class="si">{</span><span class="n">r_value</span><span class="o">**</span><span class="mi">2</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">)'</span><span class="p">)</span>
 
-
-
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Beziehung zwischen der Anzahl der Listings und dem durchschnittlichen Rating'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Anzahl der Listings pro Host'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Durchschnittliches Rating'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Relationship between the Number of Listings and the Average Rating'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Number of Listings per Host'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Average Rating'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 <span class="c1"># Filter the data to include only hosts with more than 10 listings</span>
 <span class="n">filtered_data</span> <span class="o">=</span> <span class="n">listings_and_ratings_clean</span><span class="p">[</span><span class="n">listings_and_ratings_clean</span><span class="p">[</span><span class="s1">'listings_count'</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">]</span>
 
-<span class="c1"># Boxplot für gefilterte Daten erstellen</span>
+<span class="c1"># Create box plot for filtered data</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">'listings_count'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'average_rating'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">filtered_data</span><span class="p">,</span> <span class="n">showfliers</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Beziehung zwischen der Anzahl der Listings und dem durchschnittlichen Rating (für Hosts mit &gt; 10 Listings)'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Anzahl der Listings pro Host'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Durchschnittliches Rating'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Relationship between the Number of Listings and the Average Rating (for Hosts with &gt; 10 Listings)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Number of Listings per Host'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Average Rating'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -7861,7 +7852,7 @@ und sind in der public domain unter CC0 verfügbar.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Die Durchschnittliche Bewertung scheint keinen offensichtlichen Zusammenhang mit der Anzahl der Listings pro Host zu haben. Die niedrigen Bewertungen scheinen sich mit der Anzahl der Listings nach oben zu Bewegen. Die Durchschnittliche Bewertung sinkt aber sogar leicht (rote Regressionsline). Gerade bei Hosts mit vielen Listings (&gt;10) ist aber die Datenlage recht spärlich und die Aussagekraft fraglich.</p>
+<p>The average rating does not seem to have an obvious correlation with the number of listings per host. Low ratings seem to increase with the number of listings. However, the average rating even slightly decreases (red regression line). Especially for hosts with many listings (&gt;10), the data is quite sparse and the significance is questionable.</p>
 </div>
 </div>
 </div>
