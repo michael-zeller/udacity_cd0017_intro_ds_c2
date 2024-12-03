@@ -19,6 +19,13 @@ files are from
 https://www.kaggle.com/datasets/airbnb/seattle/data
 License CCO:Public Domain
 
+## images
+
+https://huggingface.co/spaces/black-forest-labs/FLUX.1-dev
+Prompt: render a artistic skyline of seattle. place a luxurious kingsize bed in the middle of the city
+
+show seattle from an isometric perspektive. replace the buildings in the middle with an house-sized luxurious kingsize bed.
+
 
 # how to interact
 
