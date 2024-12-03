@@ -7535,11 +7535,11 @@ and is available in the public domain under CC0.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Inhaltsverzeichnis">Inhaltsverzeichnis<a class="anchor-link" href="#Inhaltsverzeichnis">¶</a></h2><ol>
-<li><a href="#beschreibung-der-dataframes-und-ihrer-spalten">Beschreibung der DataFrames und ihrer Spalten</a></li>
-<li><a href="#sind-die-preise-vom-stadtteil-abhaengig">Sind die Preise vom Stadtteil abhängig?</a></li>
-<li><a href="#gibt-es-eine-abhaengigkeit-der-preise-von-feiertagen">Gibt es eine Abhängigkeit der Preise von Feiertagen?</a></li>
-<li><a href="#haben-erfahrene-hosts-mit-mehreren-angeboten-bessere-bewertungen">Haben erfahrene Hosts mit mehreren Angeboten bessere Bewertungen?</a></li>
+<h2 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">¶</a></h2><ol>
+<li><a href="#description-of-dataframes-and-their-columns">Description of DataFrames and their Columns</a></li>
+<li><a href="#are-prices-dependent-on-the-neighborhood">Are prices dependent on the neighborhood?</a></li>
+<li><a href="#is-there-a-dependency-of-prices-on-holidays">Is there a dependency of prices on holidays?</a></li>
+<li><a href="#do-experienced-hosts-with-multiple-listings-have-better-ratings">Do experienced hosts with multiple listings have better ratings?</a></li>
 </ol>
 </div>
 </div>
@@ -7549,7 +7549,7 @@ and is available in the public domain under CC0.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Import libraries</span>
@@ -7559,8 +7559,6 @@ and is available in the public domain under CC0.</p>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>  <span class="c1"># Import Matplotlib for data visualization</span>
 <span class="kn">import</span> <span class="nn">holidays</span>  <span class="c1"># Import holidays for holiday data</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>  <span class="c1"># Import seaborn for data visualization</span>
-<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>  <span class="c1"># Import geopandas for geospatial data analysis</span>
-<span class="kn">import</span> <span class="nn">geodatasets</span> <span class="k">as</span> <span class="nn">gd</span>  <span class="c1"># Import geodatasets for geospatial data analysis</span>
 
 
 <span class="c1"># read data</span>
